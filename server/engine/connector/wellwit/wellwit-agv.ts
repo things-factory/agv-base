@@ -25,11 +25,12 @@ export class WellwitAGVConnector implements Connector {
   static getBaseCommand(packetType, robotId, packetId) {
     const dt = new Date()
     const hms = Number(dt.getHours().toString() + dt.getMinutes() + dt.getSeconds() + dt.getMilliseconds()).toString(16)
-    var message = FIXED_HEADER +
-      packetType +  // 1 bytes
-      robotId +     // 2 bytes
-      packetId +    // 4 bytes
-      hms.padStart(8, '0')  // 4 bytes
+    var message =
+      FIXED_HEADER +
+      packetType + // 1 bytes
+      robotId + // 2 bytes
+      packetId + // 4 bytes
+      hms.padStart(8, '0') // 4 bytes
 
     return message
   }
@@ -38,17 +39,17 @@ export class WellwitAGVConnector implements Connector {
     var message = this.getBaseCommand(packetType, robotId, packetId) + backupData + coordinate
     var xorcheck = WellwitAGVConnector.chk8xor(Buffer.from(message, 'hex'))
     message += xorcheck
-    
+
     return message
   }
-  
+
   static chk8xor(byteArray) {
-    var checksum = 0;
-    for(var i = 0; i <  byteArray.length; i++) {
-        checksum ^= byteArray[i];
+    var checksum = 0
+    for (var i = 0; i < byteArray.length; i++) {
+      checksum ^= byteArray[i]
     }
 
-    return checksum.toString(16).padStart(2, '0');
+    return checksum.toString(16).padStart(2, '0')
   }
 
   async ready(connectionConfigs) {
@@ -72,7 +73,7 @@ export class WellwitAGVConnector implements Connector {
     var keepalive = true
 
     Connections.addConnection(config.name, {
-      request: async function(message, { logger }) {
+      request: async function (message, { logger }) {
         return await queue.add(async () => {
           while (keepalive) {
             try {
@@ -106,7 +107,7 @@ export class WellwitAGVConnector implements Connector {
           }
         })
       },
-      close: function() {
+      close: function () {
         queue.clear()
         keepalive = false
         socket.destroy()
@@ -133,6 +134,10 @@ export class WellwitAGVConnector implements Connector {
         name: 'robotId'
       }
     ]
+  }
+
+  get taskPrefixes() {
+    return ['wellwit-agv']
   }
 }
 

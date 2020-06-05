@@ -124,6 +124,10 @@ export class WellwitAgvServer extends EventEmitter implements Connector {
       }
     ]
   }
+
+  get taskPrefixes() {
+    return ['wellwit-agv']
+  }
 }
 
 Connections.registerConnector('wellwit-agv-server', new WellwitAgvServer())
