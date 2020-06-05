@@ -93,7 +93,7 @@ async function move(connection, connectionName, params, context) {
     if (!handler) {
       throw new Error(`no task handler(agv-execute-wait)`)
     } else {
-      var retval: any = await handler({ connectionName }, context)
+      var retval: any = await handler({ connectionName } as any, context)
       if (i > 20) {
         break
       }

@@ -48,7 +48,7 @@ async function WellwitAgvCalibrate(step, context) {
     if (!handler) {
       throw new Error(`no task handler(agv-execute-wait)`)
     } else {
-      var retval: any = await handler({ connectionName }, context)
+      var retval: any = await handler({ connectionName } as any, context)
       logger.info('finish agv-arrive')
     }
   }

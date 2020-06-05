@@ -38,7 +38,7 @@ async function WellwitAgvRotateShelf(step, context) {
     if (!handler) {
       throw new Error(`no task handler(agv-execute-wait)`)
     } else {
-      var rtnval = await handler({ connectionName }, context)
+      var rtnval = await handler({ connectionName } as any, context)
       logger.info('finish agv-rotate-shelf')
     }
   }
