@@ -1,0 +1,13 @@
+{
+  "label.packet_id": "패킷 ID",
+  "label.coordinate": "목적지 좌표",
+  "label.path_count": "경유좌표수",
+  "label.rotation": "회전각",
+  "label.distance": "이동거리",
+  "label.uom(mm)": "단위(mm)",
+  "label.expect_packet_type": "대기패킷",
+  "label.expect_state": "기대상태",
+  "label.lift_or_land": "액션",
+  "label.redirect_priority": "턴방향",
+  "label.is_wait": "완료대기"
+}

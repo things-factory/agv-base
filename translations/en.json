@@ -1,0 +1,13 @@
+{
+  "label.packet_id": "Packet ID",
+  "label.coordinate": "Coordinate",
+  "label.path_count": "Path Count",
+  "label.rotation": "Rotation",
+  "label.distance": "Distance",
+  "label.uom(mm)": "uom(mm)",
+  "label.expect_packet_type": "Expect Packet Type",
+  "label.expect_state": "Expect Status",
+  "label.lift_or_land": "Action",
+  "label.redirect_priority": "Redirect Priority",
+  "label.is_wait": "If Wait"
+}
