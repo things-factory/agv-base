@@ -9,5 +9,6 @@
   "label.expect_state": "기대상태",
   "label.lift_or_land": "액션",
   "label.redirect_priority": "턴방향",
-  "label.is_wait": "완료대기"
+  "label.is_wait": "완료대기",
+  "label.index": "인덱스"
 }
